@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+html,
+body {
+  position: relative;
+  scroll-behavior: smooth;
+  padding: 0;
+  margin: 0;
+  outline: 0;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  color: white;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.transition * {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important;
+}
+
+.radio-box {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.2rem;
+}
+
+.radio-small {
+  width: fit-content;
+  min-width: 3.3vw;
+  height: 4vh;
+  background-color: var(--grey);
+  border-radius: 0px 5px 5px 0px;
+  display: flex;
+  align-items: center;
+  padding: 0 5px;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Fira+Code&display=swap');
+
+.container {
+  height: 100vh;
+  display:none;
+}
+
+.radio-container {
+  position: absolute;
+  bottom: -56vh;
+  right: 5vh;
+}
+
+.radio {
+  width: 18vh;
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+#submit {
+  position: absolute;
+  width: 2.2vh;
+  height: 3.2vh;
+  bottom: 14vh;
+  left: 4.2vh;
+  border-radius: 5px;
+  transition: all 0.1s linear;
+}
+
+#submit:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+#disconnect {
+  position: absolute;
+  width: 2.2vh;
+  height: 3.2vh;
+  bottom: 14vh;
+  right: 3.2vh;
+  border-radius: 5px;
+  transition: all 0.1s linear;
+}
+
+#disconnect:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+#volumeUp {
+  position: absolute;
+  width: 3.3vh;
+  height: 1.9vh;
+  bottom: 18vh;
+  right: 3.1vh;
+  border-radius: 5px;
+  transition: all 0.1s linear;
+}
+
+#volumeUp:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+#volumeDown {
+  position: absolute;
+  width: 3.3vh;
+  height: 1.9vh;
+  bottom: 18vh;
+  left: 4.0vh;
+  border-radius: 5px;
+  transition: all 0.1s linear;
+}
+
+#volumeDown:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+#increaseradiochannel {
+  position: absolute;
+  width: 3.3vh;
+  height: 1.9vh;
+  bottom: 30vh;
+  left: 0.0vh;
+  border-radius: 5px;
+  transition: all 0.1s linear;
+}
+
+#increaseradiochannel:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+#decreaseradiochannel {
+  position: absolute;
+  width: 3.3vh;
+  height: 1.9vh;
+  bottom: 18vh;
+  left: 0.0vh;
+  border-radius: 5px;
+  transition: all 0.1s linear;
+}
+
+#decreaseradiochannel:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+#poweredOff {
+  position: absolute;
+  width: 3.3vh;
+  height: 2.9vh;
+  bottom: 50vh;
+  left: 0.0vh;
+  border-radius: 5px;
+  transition: all 0.1s linear;
+}
+
+#poweredOff:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.onoff button {
+  padding: 40px 55px;
+  opacity: .0;
+}
+
+.channel {
+  position: absolute;
+  bottom: 24vh;
+  left: 5.3vh;
+  background: none;
+}
+
+::-webkit-input-placeholder {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.channel span {
+  text-align: center;
+  color: rgba(0, 0, 0, 0.75);
+}
+
+.channel input {
+  text-align: center;
+  border: none;
+  font-size: 25px;
+  background: none;
+  outline: none;
+  font-family: 'Fira Code', monospace;
+  width: 5vw;
+}
+
+::-webkit-inner-spin-button {
+  display: none;
+}
+
+
+.radiolist {
+  display: none;
+  position: absolute;
+  bottom: 240px;
+  left: 35px;
+  width: 200px;
+}
+
+.radiolist > .header {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 1px 10px;
+  position: relative;
+  top: 0;
+  border-radius: 5px;
+}
+
+.radiolist > .header > .channel-users {
+  float: right;
+}
+
+.radiolist > .users-list {
+  padding: 1px 2px;
+}
+
+.radiolist > .users-list > .user {
+  color: #fff;
+}
+
+.radiolist > .users-list > .user.active {
+  transition: color .5s;
+  color: lime;
+}

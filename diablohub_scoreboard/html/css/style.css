@@ -1,0 +1,159 @@
+body {
+  display: none;
+}
+.main {
+  background-color: rgba(0, 0, 0, 0.6);
+
+  position: absolute;
+
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 50vh;
+  height: 20vh;
+
+  border-radius: 1vh;
+}
+.main-icon-box {
+  margin-top: 1.5vh;
+}
+.box {
+  margin-left: 3.5vh;
+
+  display: inline-block;
+  text-align: center;
+}
+.icon-box {
+  background-color: rgba(0, 0, 0, 0.6);
+
+  display: inline-block;
+  text-align: center;
+
+  width: 5vh;
+  height: 5vh;
+
+  border-radius: 1vh;
+
+  color: white;
+}
+.sub-text {
+  font-family: "Poppins", sans-serif;
+
+  display: block;
+  color: white;
+}
+
+.box-home {
+  margin-left: 4vh;
+
+  display: inline-block;
+  text-align: center;
+}
+.icon-box-home {
+  background-color: rgba(0, 0, 0, 0.6);
+
+  display: inline-block;
+  text-align: center;
+
+  width: 6vh;
+  height: 6vh;
+
+  border-radius: 1vh;
+
+  color: white;
+}
+
+.icon {
+  margin-top: 1.7vh;
+}
+.icon-home {
+  margin-top: 2.2vh;
+}
+
+.main-taxt-box {
+  font-family: "Poppins", sans-serif;
+
+  text-align: center;
+
+  color: white;
+}
+.main-job {
+  font-size: 1.8vh;
+
+  margin-bottom: 0px;
+}
+.dual-job {
+  font-size: 1.5vh;
+
+  margin-bottom: 0px;
+  margin-top: 0.3vh;
+}
+.city-code {
+  font-size: 1.2vh;
+
+  margin-bottom: 0px;
+  margin-top: 1.2vh;
+}
+
+.icon-box .factions .police {
+  margin-right: 2vh;
+}
+
+.icon-box .factions .police .count {
+  color: #0084ff;
+}
+.icon-box .factions .police img {
+  filter: invert(44%) sepia(74%) saturate(5976%) hue-rotate(198deg)
+    brightness(108%) contrast(104%);
+}
+
+.icon-box .factions .faction {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+.icon-box .factions .faction img {
+  width: 2.5vh;
+  height: 2.5vh;
+}
+
+.sub-icon {
+  position: relative;
+  width: 3vh;
+  height: 3vh;
+}
+.main-icon {
+  position: relative;
+  width: 3.8vh;
+  height: 3.8vh;
+}
+
+#police-icon {
+  top: 1vh;
+  filter: invert(44%) sepia(74%) saturate(5976%) hue-rotate(198deg)
+    brightness(108%) contrast(104%);
+}
+#ems-icon {
+  top: 1vh;
+  filter: invert(27%) sepia(100%) saturate(6538%) hue-rotate(323deg)
+    brightness(97%) contrast(113%);
+}
+#players-icon {
+  top: 1.1vh;
+  filter: invert(100%) sepia(5%) saturate(0%) hue-rotate(77deg) brightness(115%)
+    contrast(100%);
+}
+#mechanik-icon {
+  top: 1.1vh;
+  width: 2.8vh;
+  height: 2.8vh;
+  filter: invert(52%) sepia(57%) saturate(1890%) hue-rotate(1deg)
+    brightness(104%) contrast(104%);
+}
+#fire-icon {
+  filter: invert(28%) sepia(99%) saturate(6886%) hue-rotate(358deg) brightness(108%) contrast(123%);
+  top: 1.1vh;
+  width: 2.8vh;
+  height: 2.8vh;
+}
