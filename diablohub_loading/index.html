@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>DiabloHub</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<meta name="viewport" content="width=device-width,user-scalable=no">
+
+<video style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;" width="1920" height="1080" autoplay muted loop>
+  <source src="poprawionyscreenload.mp4" type="video/mp4">
+</video>
+
+<div id="container">
+	<div id="game"></div>
+	<div id="score">0</div>
+	</div>
+</div>
+
+<p class="lpm" style="display: none; position: absolute; left: 50%; transform: translateX(-50%); bottom: 12%; font-size: 2.5vh;"><b style="color: #fff;">Naciśnij LPM aby wejść</b></p>
+
+<input type="range" min="0" max="100" step="0.01" id="volumeSlider">
+
+<div id="player"></div>
+
+<div id="cursor"></div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r83/three.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js'></script>
+<script src="./script.js"></script>
+
+</body>
+</html>

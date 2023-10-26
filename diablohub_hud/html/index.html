@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link href="css/style.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="cam">
+      <div class="top"></div>
+      <div class="bot"></div>
+    </div>
+  
+    <div class="main">
+      <section id="hudsettings" class="settings-box">
+        <div class="hudedit__exit"><i class="fas fa-times" onclick="CloseUi()"></i></div>
+        <span class="settings-title">Zarządzanie hudem</span>
+        <div class="settings-box-section">
+          <div id="watermark">
+            <span class="settings-box-section-label"
+              >Wyświetlanie Watermarku:
+            </span>
+            <div class="switch-box">
+              <label class="switch">
+                <input id="watermark-switch" type="checkbox" />
+                <span class="slider round"></span>
+              </label>
+            </div>
+          </div>
+
+          <div id="huddisplay">
+            <span class="settings-box-section-label">Wyświetlanie Hudu: </span>
+            <div class="switch-box">
+              <label class="switch">
+                <input id="allhud-switch" type="checkbox" />
+                <span class="slider round"></span>
+              </label>
+            </div>
+          </div>
+
+          <div id="carhuddisplay">
+            <span class="settings-box-section-label"
+              >Wyświetlanie CarHudu:
+            </span>
+            <div class="switch-box">
+              <label class="switch">
+                <input id="carhud-switch" type="checkbox" />
+                <span class="slider round"></span>
+              </label>
+            </div>
+          </div>
+
+          <div id="camdisplay">
+            <span class="settings-box-section-label">Tryb Kinowy: </span>
+            <div class="switch-box">
+              <label class="switch">
+                <input id="cam-switch" type="checkbox" />
+                <span class="slider round"></span>
+              </label>
+            </div>
+          </div>
+
+          <div id="hudedit">
+            <span class="settings-box-section-label">
+              Wybierz rodzaj hudu:
+              <select id="hud-settings">
+                <optgroup label="Kształt hudu">
+                  <option value="romb">Romb</option>
+                  <option value="kwadrat">Kwadrat</option>
+                  <option value="kolo">Koło</option>
+                </optgroup>
+              </select>
+            </span>
+          </div>
+
+          <div id="changemaincolor">
+            <span class="settings-box-section-label">
+              Kolor główny hudu:
+              <br>
+              <input
+              id="change_primary"
+              class="colorinput"
+              type="color"
+              value="#fff"
+            />
+            </span>
+        </div>
+        
+        <!-- <div id="changecolor">
+          <span class="settings-box-section-label">
+            Kolor główny hudu:
+            <input
+            id="change_secondary"
+            class="colorinput"
+            type="color"
+            value="#fff"
+          />
+          </span>
+      </div> -->
+      </section>
+
+      <section class="hud-box">
+        <div class="hud">
+          <ul class="list_reset hud_row">
+            <li id="voice">
+              <i class="fas fa-microphone"></i>
+              <span class="bg hud__bg--voice"></span>
+            </li>
+
+            <li id="armor">
+              <i class="fa-solid fa-shield-halved"></i>
+              <span class="bg hud__bg--armor"></span>
+            </li>
+
+            <li id="thirst">
+              <i class="fas fa-tint"></i>
+              <span class="bg hud__bg--thirst"></span>
+            </li>
+
+            <li id="hunger">
+              <i class="fas fa-hamburger"></i>
+              <span class="bg hud__bg--hunger"></span>
+            </li>
+
+            <li id="health">
+              <i class="fas fa-heart"></i>
+              <span class="bg hud__bg--health"></span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="streetlabael-box">
+        <span class="streetlabael-label"></span>
+      </section>
+
+      <section class="carhud-box">
+        <div class="speedometr">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="210"
+            height="210"
+            viewBox="0 0 49 40.22"
+          >
+            <path
+              id="progressbar-bar-line-none"
+              class="progress-bar-line"
+              fill-opacity="0"
+              stroke-width="4"
+              d="M1048.02,1119.34a22.5,22.5,0,1,1,37.15-.28"
+              transform="translate(-1042 -1082)"
+              style="
+                stroke: var(--secondaryColor);
+                fill: none;
+                stroke-linecap: round;
+                fill-rule: evenodd;
+              "
+            ></path>
+            <path
+              id="progressbar_server-table-947"
+              class="progress-bar-line"
+              fill-opacity="0"
+              stroke-width="4"
+              stroke="#ef052b"
+              d="M1048.02,1119.34a22.5,22.5,0,1,1,37.15-.28"
+              transform="translate(-1042 -1082)"
+              style="
+                stroke: var(--primaryColor);
+                stroke-dasharray: calc(97.6754 + 10), calc(97.6754 + 10);
+                stroke-dashoffset: 97.6754;
+                fill: none;
+                stroke-linecap: round;
+                fill-rule: evenodd;
+              "
+            ></path>
+          </svg>
+          <div class="players-bar-info">
+            <div class="players-bar-info-title-now">
+              <span id="speed-1">2</span>
+              <span id="speed-2">5</span>
+              <span id="speed-3">0</span>
+            </div>
+            <div class="carhud-label">km/h</div>
+          </div>
+          <div class="carhud-icon-box">
+            <div class="belt-icon">
+              <i class="fa-solid fa-user-slash"></i>
+            </div>
+            <div class="tempomat-icon">
+              <i class="fa-solid fa-gauge"></i>
+            </div>
+            <div class="engine-icon">
+              <i class="fa-solid fa-car-battery"></i>
+            </div>
+            <div class="fuel-icon">
+              <i class="fas fa-gas-pump"></i>
+              <span class="fuel-text" id="fuel">30%</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="watermark-box">
+        <div class="watermark">
+          <div class="icon">
+            <span id="watermark-id"></span>
+          </div>
+
+          <div class="info">
+            <h2 class="watermark-title"></h2>
+            <p class="watermark-desc">diablohub.pl</p>
+            <p class="watermark-disc">discord.gg/diablohub</p>
+            <img class="logo" src="img/logo.png" alt="logo" />
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

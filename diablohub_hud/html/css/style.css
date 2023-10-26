@@ -1,0 +1,461 @@
+:root {
+  --primaryColor: #fc0303;
+  --secondaryColor: rgba(0, 0, 0, 0.6);
+}
+
+
+::-webkit-scrollbar {
+  width: 0;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #fc0303;;
+  border-radius: 25px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  /*user-select: none;*/
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+#cam {
+  display: none;
+}
+.top {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 10%;
+  background-color: black;
+}
+.bot {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 10%;
+  background-color: black;
+}
+
+.main {
+  display: none;
+}
+#hudsettings {
+  display: none;
+  user-select: none;
+}
+.settings-box {
+  width: 60vh;
+  height: 40vh;
+
+  border-radius: 2vh;
+
+  background-color: var(--secondaryColor);
+
+  text-align: center;
+}
+.settings-title {
+  color: white;
+
+  position: relative;
+  top: 1vh;
+  font-size: 3vh;
+}
+.settings-box-section {
+  position: relative;
+  top: 1vh;
+  /* left: 15vh; */
+  text-align: center;
+}
+.settings-box-section-label {
+  display: inline-block;
+  position: relative;
+  top: 1vh;
+  font-size: 1.5vh;
+}
+
+.hud-box {
+  position: absolute;
+  right: 2vh;
+  bottom: 25px;
+
+  background-color: var(--secondaryColor);
+
+  width: 325px;
+  height: 70px;
+
+  border-radius: 1vh;
+}
+
+.streetlabael-box {
+  position: absolute;
+  right: 2vh;
+  bottom: 100px;
+  background-color: var(--secondaryColor);
+  width: 325px;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 1vh;
+  font-family: "Poppins", sans-serif;
+  color: white;
+  text-align: center;
+}
+
+.streetlabael-label {
+  font-size: 2vh;
+  font-weight: 600;
+}
+
+.switch-box {
+  display: inline-block;
+  position: relative;
+  top: 1.4vh;
+}
+
+.watermark-box {
+  display: block;
+  position: absolute;
+  width: 27vh;
+  right: 2vh;
+  top: 2.5vh;
+}
+
+.watermark {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  margin: 0 0 30px 0;
+}
+.watermark .icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  max-width: 60px;
+  height: 60px;
+  padding: 15px;
+  background: url(images/watermark_bg-twitter.png) center no-repeat var(--primaryColor);
+  background-size: 110% 110%;
+  border-radius: 10px;
+  margin: 0 10px 0 0;
+  box-shadow: 0 0 20px #00000069;
+  transform: rotate(45deg);
+}
+.watermark .icon i,
+.watermark .icon span {
+  transform: rotate(-45deg);
+}
+.watermark .icon span {
+  font-weight: 900;
+}
+.watermark .info {
+  display: block;
+  width: 100%;
+  background-color: #00000080;
+  margin: 0 0 0 -25px;
+  padding: 18px 10px 18px 35px;
+  position: relative;
+  z-index: -1;
+  border-radius: 1vh;
+}
+.watermark .info .watermark-title {
+  font-size: 1vh;
+  display: block;
+  position: absolute;
+  top: -10px;
+  margin: 0;
+  padding: 3px 12px;
+  background: var(--primaryColor);
+  border-radius: 7px;
+  left: 7%;
+}
+.watermark .info .watermark-desc {
+  margin: 0;
+  font-size: 1.4vh;
+  font-weight: 800;
+}
+.watermark .info .watermark-disc {
+  margin: 0;
+  font-size: 1vh;
+  font-weight: 800;
+  color: #898989;
+}
+
+.logo {
+  display: block;
+  position: absolute;
+  width: 6vh;
+  right: 1.4vh;
+  top: 0.7vh;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 5vh;
+  height: 2vh;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--secondaryColor);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  width: 1.2vh;
+  height: 1.2vh;
+
+  left: 0.5vh;
+  bottom: 0.4vh;
+  background-color: var(--primaryColor);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: var(--secondaryColor);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px rgb(81, 81, 81);
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 1vh;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.carhud-box {
+  position: absolute;
+
+  bottom: 0px;
+  right: 360px;
+}
+.players-bar-info {
+  position: absolute;
+  left: 60px;
+  top: 70px;
+
+  font-family: "Arial", sans-serif;
+  font-weight: bold;
+
+  font-size: 40px;
+}
+.carhud-label {
+  position: relative;
+  left: 18px;
+  /* top: 80px; */
+  font-size: 25px;
+}
+.hud {
+  display: block;
+  position: relative;
+  top: 2px;
+  left: 142px;
+  transform: translate(-50%, -5%);
+}
+
+.hud ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-evenly;
+}
+
+.hud ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: center;
+  height: 35px;
+  width: 35px;
+  background-color: var(--secondaryColor);
+  border-radius: 10%;
+  box-shadow: 0 0 20px #00000069;
+  padding: 13px;
+  position: relative;
+  transform: rotate(45deg);
+  overflow: hidden;
+}
+
+.hud ul li:not(:last-child) {
+  margin: 0 20px 0 0;
+}
+
+.hud ul li i {
+  z-index: 2;
+  transform: rotate(-45deg);
+}
+
+.hud ul li span.bg {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 10%;
+  background: var(--primaryColor);
+  bottom: 0;
+  z-index: 1;
+  transition: all 1s;
+}
+.carhud-icon-box {
+  position: absolute;
+  bottom: 20px;
+  left: 38px;
+
+  width: 135px;
+  height: 30px;
+  background-color: var(--secondaryColor);
+
+  border-radius: 30px;
+}
+
+.belt-icon {
+  position: relative;
+  display: inline-block;
+  top: 1px;
+  left: 10px;
+  font-size: 14px;
+  color: #747474;
+}
+.tempomat-icon {
+  position: relative;
+  display: inline-block;
+  top: 2px;
+  left: 15px;
+  color: #747474;
+}
+.engine-icon {
+  position: relative;
+  display: inline-block;
+  top: 2px;
+  left: 20px;
+  color: #747474;
+}
+
+.fuel-icon {
+  position: relative;
+  display: inline-block;
+  top: 2px;
+  left: 25px;
+  color: var(--primaryColor);
+}
+.fuel-text {
+  position: relative;
+  bottom: 3px;
+  font-size: 10px;
+}
+#hud-settings {
+  color: white;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--secondaryColor);
+  font-size: 11px;
+  padding: 2px;
+}
+
+.colorinput {
+  border: none;
+  /* border-radius: 5px; */
+  background-color: transparent;
+  padding: 0;
+  height: 80%;
+  aspect-ratio: 1/1;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.hudedit__exit {
+  position: relative;
+  top: 0px;
+  right: -300px;
+  font-size: 27px;
+}
+.hudedit__exit:hover {
+  /* position: absolute; */
+  color: #ff0000;
+}
+
+/* .colorinput {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%); 
+  overflow: hidden;
+  width: 70px;
+  height: 70px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #ffffff5d;
+} */

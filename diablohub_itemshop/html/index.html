@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>NeedRP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://unpkg.com/vue@2.6.14/dist/vue.min.js"></script>
+    <script src="https://unpkg.com/v-tag-input@0.0.3/dist/v-tag-input.js"></script>
+  </head>
+
+  <body>
+    <div class="container" id="container" style="display: none">
+      <div class="navigation">
+        <div class="items-left">
+          <div class="button selected" id="sklep">Sklep</div>
+          <div class="button" id="info1">Informacje</div>
+        </div>
+        <div class="items-right">
+          <div class="coins-title">COINSY: </div>
+          <div class="coins-amount">
+            <img class="image" src="images/coin.png" />
+            <span class="text">0</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="info" id="info">
+        <div class="infoss">
+          <h2>Witaj w oficjalnym sklepie Need RolePlay!</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, sed et velit minus nam ipsum! Debitis, dolorem, placeat odit hic nobis beatae officia consequatur repellat velit itaque natus blanditiis. Ad?
+          </p>
+          <p>
+            Gdzie znajdę przedmioty ze skrzyń? Po wydropieniu itemu ze skrzyni
+            trafia on do Twojego depozytu, /depozyt. Stamtąd możesz wyjąć
+            przedmioty nabyte ze skrzyń. Pojazdy ze skrzyń trafiają
+            automatycznie w trybie natychmiastowym do Twojego prywatnego garażu.
+          </p>
+          <p>Miłego korzystania ze sklepu!</p>
+        </div>
+      </div>
+
+      <div class="shop" id="shop">
+        <div class="content" id="content">
+          <div class="baner">
+            <div class="baner-left">
+              <img
+                src="https://cdn.discordapp.com/attachments/794695986269257758/1068436197040472125/IMG_8640.png"
+                class="baner-img"
+                alt=""
+              />
+            </div>
+            <div class="baner-right">
+              <div class="baner-up">
+                <div class="baner-left-title">Skrzynia dzienna</div>
+                <div class="baner-left-desc">
+                  Darmowa skrzynia którą możesz odebrać codziennie za darmo!
+                </div>
+              </div>
+              <div class="baner-down">
+                <div class="baner-btn">Zobacz!</div>
+                <span id="time"></span>
+              </div>
+            </div>
+          </div>
+          <div class="cases">
+            <div class="title">Skrzynie</div>
+            <div class="case-holder" id="cases"></div>
+          </div>
+          <div class="another">
+            <div class="title">Inne</div>
+            <div class="case-holder" id="casestwo"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="buyitem" id="buyitem" style="display: none">
+        <div class="left" id="left">
+          <span class="labelleft" id="labelleft"
+            >Wprowadz starą rejestracje pojazdu</span
+          >
+          <img src="" id="buyitem-image" alt="" />
+          <input
+            type="text"
+            class="inputText"
+            id="inputText"
+            style="display: none"
+          />
+          <input
+            type="text"
+            class="inputText1"
+            id="inputText1"
+            style="display: none"
+          />
+          <div class="btnss" id="btnss" style="display: none">
+            <div class="btns-decline" onclick="cancel()">Anuluj</div>
+            <div class="btns-accept" id="acceeept" onclick="uzyj()">
+              Potwierdź
+            </div>
+            <div
+              class="btns-accept"
+              id="acceeept1"
+              style="display: none"
+              onclick="changerej()"
+            >
+              Zmień
+            </div>
+            <div class="error" id="error" style="display: none">
+              Pojazd nie należy do ciebie!
+            </div>
+          </div>
+        </div>
+        <div class="right" id="right">
+          <div class="title" id="titleitem">
+            <div class="title-p" id="title-p">Skrzynia</div>
+            <div class="title-name" id="case-name">SIGMA</div>
+            <div class="title-desc" id="title-desc">
+              Przedmioty które możesz wylosować w tej skrzyni
+            </div>
+          </div>
+          <div class="items" id="items"></div>
+          <div class="bottom" id="bottom">
+            <div class="buy-input" id="buy-inp">
+              <span class="btn">-</span>
+              <input
+                type="number"
+                id="case-item"
+                min="1"
+                max="10"
+                value="1"
+                onKeyDown="return false"
+              />
+              <span class="btn">+</span>
+            </div>
+            <div class="buy-btn" id="buy-btnsss" onclick="buyItem()">
+              <div class="coins">
+                <img src="images/coin.png" />
+                <span
+                  id="coins-amount"
+                  style="margin-right: 0.5vh; font-size: 110%"
+                ></span>
+              </div>
+              <div class="text" style="font-size: 110%">|&nbsp;Zakup</div>
+            </div>
+            <div
+              class="buy-btn1"
+              style="display: none"
+              id="buy-btnsss1"
+              onclick="getDaily()"
+            >
+              <div class="text" style="font-size: 110%">Odbierz</div>
+            </div>
+            <div class="cases-amount">
+              <span style="font-size: 150%"
+                >Posiadasz: <span id="amoumt"></span
+              ></span>
+              <div class="btn-open" id="openes">Otwórz</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="foother">NeedRP © 2023</div>
+      <div id="notifications"></div>
+      <div class="input-box"></div>
+    </div>
+
+    <!-- ///////////////////////////////////////////////////// SKRZYNKI ///////////////////////////////////////////////////// -->
+
+    <div class="app2">
+      <div id="app" class="container-2">
+        <div
+          v-bind:style="{display: summary_display}"
+          id="summary"
+          class="case2-summary-container"
+        >
+          <div class="case2-summary">
+            <div class="case2-summary-content">
+              <div class="case2-drop-name">
+                <p>{{items[rolled].label}}</p>
+                <p>{{items[rolled].desc}}</p>
+              </div>
+            </div>
+            <div class="case2-drop-img">
+              <img v-bind:src="items[rolled].img" />
+            </div>
+            <div class="case2-buttons">
+              <button class="purple" @click="get()">Odbierz</button>
+              <button id="zamien" class="red" @click="zamiencoin()">
+                <span>Zamień na</span
+                ><span class="coiiins"
+                  ><span class="imaaaag"
+                    ><img class="image" src="images/coin.png" /></span
+                  ><span id="ammmo">15</span></span
+                >
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="case2-container">
+          <div class="case2-arrow">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="40px"
+              viewBox="0 0 24 24"
+              width="40px"
+              fill="#000000"
+            >
+              <path d="M0 0h24v24H0V0z" fill="none" />
+              <path d="M10 8.64L15.27 12 10 15.36V8.64M8 5v14l11-7L8 5z" />
+            </svg>
+          </div>
+          <div id="arrow" class="case2-arrow-inv"></div>
+          <div class="case2-main">
+            <div class="case2-overlay"></div>
+            <div class="case2-items" id="items" ref="items"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

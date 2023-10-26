@@ -1,0 +1,22 @@
+Locales ["en"] = {
+	["boombox_menu_title"] = "Boombox",
+	["boombox_admin_menu_title"] = "Boombox Admin Menu",
+	["put_boombox"] = "Postaw Boomboxa na ziemi",
+	["get_boombox"] = "Podnieś Boomboxa z ziemi",
+	["play_music"] = "Włącz muzykę",
+	["stop_music"] = "Wyłącz muzykę",
+	["volume_music"] = "Zmień głoścość",
+	["boombox_alreadyOne"] = "Postawiłeś już jednego Boomboxa!",
+	["not_found"] = "Nie posiadasz żadnego Boomboxa!",
+	["set_volume"] = "Ustaw głośność od 0 do 100",
+	["play_id"] = "YouTube URL",
+	["sound_limit"] = "Głośność musi być od 0 do 100",
+	["boombox_help"] = "Naciśnij ~INPUT_CONTEXT~ aby puścić muzykę",
+	["boombox_tooFar"] = "Jesteś za dalego, aby kontrolować muzykę",
+	["dont_own"] = "To nie twój Boombox!",
+	["sounds_destroyed"] = "wszystkie Boomboxy zostały wyłączone!",
+	["sounds_destroyed_help"] = "Wyłącz wszystkie Boomboxy!",
+	["no_boomboxes"] = "Nie ma żadnych Boomboxów na serwerze!",
+	["no_sounds"] = "Nie ma żadnego Boomboxa grającego muzykę na serwerze!",
+	["no_boombox"] = "Nie ma żadnego Boomboxa w pobliżu!"
+}

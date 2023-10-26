@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Style -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/classic.min.css"/>
+    <!-- CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Crosshair</title>
+</head>
+<body>
+    <div class="content animate__animated animate__fadeIn">
+        <div class="crosshair_preview active" onclick="crosshair()">
+            <div class="crosshair_preview_window">
+                <div class="top"><div class="crosshair_top"></div></div>
+                <div class="bottom"><div class="crosshair_bottom"></div></div>
+                <div class="right"><div class="crosshair_right"></div></div>
+                <div class="left"><div class="crosshair_left"></div></div>
+            </div>
+            <div class="crosshair_dot_window">
+                <div class="dot"></div>
+            </div>
+        </div>
+        <div class="title"><i class="fa-solid fa-crosshairs"></i> Preview</div>
+
+        <div class="options">
+            <div class="slider">
+                <div class="name">Width</div>
+                <input type="range" min="1" max="50" value="10" class="range range-accent-focus" id="width"/>
+            </div>
+            <div class="slider">
+                <div class="name">Thickness</div>
+                <input type="range" min="1" max="10" value="3" class="range" id="thickness"/>
+            </div>
+            <div class="slider">
+                <div class="name">Gap</div>
+                <input type="range" min="1" max="100" value="20" class="range" id="gap"/>
+            </div>
+            <div class="slider">
+                <div class="name">Outline</div>
+                <input type="range" min="0" max="3" value="0" class="range" id="outline"/>
+            </div>
+            <div class="slider">
+                <div class="name">Opacity</div>
+                <input type="range" min="0" max="10" value="10" class="range" id="opacity"/>
+            </div>
+        </div>
+        <div class="button_content">
+            <div class="color_button">
+                <div class="color-picker"></div>
+            </div>
+            <div class="dot_button">
+               <div><i class="fa-solid fa-crosshairs"></i> Dot</div>
+                <label class="switch">
+                    <input type="checkbox" id="checkbox">
+                    <span class="slider_switch round"></span>
+                </label>
+            </div>
+            <div class="button" onclick="exit()"><i class="fa-solid fa-floppy-disk"></i> Save</div>
+            <div class="basicCrosshair_button">
+                <div><i class="fa-solid fa-crosshairs"></i> Default</div>
+                 <label class="switch">
+                     <input type="checkbox" id="defaultCross">
+                     <span class="slider_switch round"></span>
+                 </label>
+             </div>
+        </div>
+    </div>
+
+    <div class="crosshair">
+        <div class="top"><div class="crosshair_top"></div></div>
+        <div class="bottom"><div class="crosshair_bottom"></div></div>
+        <div class="right"><div class="crosshair_right"></div></div>
+        <div class="left"><div class="crosshair_left"></div></div>
+    </div>
+
+
+    <div class="crosshair_dot">
+        <div class="dot"></div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+                // Simple example, see optional options for more configuration.
+        const pickr = Pickr.create({
+            el: '.color-picker',
+            theme: 'classic', // or 'monolith', or 'nano'
+            default: localStorage.getItem("colorValue"),
+
+            swatches: [
+                'rgba(244, 67, 54, 1)',
+                'rgba(233, 30, 99, 0.95)',
+                'rgba(156, 39, 176, 0.9)',
+                'rgba(103, 58, 183, 0.85)',
+                'rgba(63, 81, 181, 0.8)',
+                'rgba(33, 150, 243, 0.75)',
+                'rgba(3, 169, 244, 0.7)',
+                'rgba(0, 188, 212, 0.7)',
+                'rgba(0, 150, 136, 0.75)',
+                'rgba(76, 175, 80, 0.8)',
+                'rgba(139, 195, 74, 0.85)',
+                'rgba(205, 220, 57, 0.9)',
+                'rgba(255, 235, 59, 0.95)',
+                'rgba(255, 193, 7, 1)'
+            ],
+
+            components: {
+
+                // Main components
+                preview: true,
+                opacity: true,
+                hue: true,
+
+                // Input / output Options
+                interaction: {
+                    hex: true,
+                    rgba: true,
+                    hsla: false,
+                    hsva: false,
+                    cmyk: false,
+                    input: true,
+                    clear: true,
+                    save: true
+                }
+            }
+        });
+
+        pickr.on('change', (...args)=>{
+            let color = args[0].toRGBA();
+            document.documentElement.style.setProperty('--crosshair_color', `rgba(${color[0]},${color[1]},${color[2]},${color[3]})`);
+            localStorage.setItem("colorValue", `rgba(${color[0]},${color[1]},${color[2]},${color[3]})`)
+        });
+
+        document.documentElement.style.setProperty("--crosshair_color", localStorage.getItem("colorValue"));
+    </script>
+</body>
+</html>

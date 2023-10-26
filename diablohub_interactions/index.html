@@ -1,0 +1,16 @@
+<html>
+	<script>
+		window.addEventListener("message", function (event) {
+			if (event.data.action == "worek_on") {
+				document.querySelector(".worek").style.display = "block";
+			}
+			
+			if (event.data.action == "worek_off") {
+				document.querySelector(".worek").style.display = "none";
+			}
+		});
+	</script>
+	<body>
+		<div class="worek" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: #000; z-index: 99999;"></div>
+	</body>
+</html>
