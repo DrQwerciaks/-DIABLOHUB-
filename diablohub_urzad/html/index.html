@@ -1,0 +1,103 @@
+<html>
+    <head>
+        <script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="style.css" type="text/css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script>
+            var selected = 0;
+            $(document).keyup(function(e) {
+                if(e.keyCode == 27){
+                    close()
+                    $.post('https://diablohub_urzad/close', JSON.stringify({}));
+                }
+            })
+            window.addEventListener('message', function(event) {
+                if(event.data.type == "open"){
+                    $('.container').fadeIn(300)
+                }
+            });
+            function close(){
+                $.post('http://diablohub_urzad/close', JSON.stringify({}));
+                $('.container').fadeOut(300)
+            }
+            function toggle(x){
+                if(x==1){
+                    switch(selected){
+                        case 0:
+                            $('.jobs').animate({left: "-600px"})
+                            selected = 1
+                            break
+                        case 1:
+                            $('.jobs').animate({left: "-1200px"})
+                            selected = 2
+                            break
+                        case 2:
+                            $('.jobs').animate({left: "-1800px"})
+                            selected = 3
+                            break
+                        case 3:
+                            $('.jobs').animate({left: "0px"})
+                            selected = 0
+                            break
+                    }
+                }
+                else if(x==0){
+                    switch(selected){
+                        case 0:
+                             $('.jobs').animate({left: "-1800px"})
+                             selected = 3
+                             break
+                        case 1:
+                            $('.jobs').animate({left: "-0px"})
+                            selected = 0
+                            break
+                        case 2:
+                            $('.jobs').animate({left: "-600px"})
+                            selected = 1
+                            break
+                        case 3:
+                            $('.jobs').animate({left: "-1200px"})
+                            selected = 2
+                            break
+                    }
+                }
+            }
+            function set(praca){
+                $.post('https://diablohub_urzad/setjob', JSON.stringify({praca: praca}));
+                close()
+                $.post('https://diablohub_urzad/close', JSON.stringify({}));
+            }
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="arrow" onclick="toggle(0)" id="left"><span class="material-icons arrow-icon">chevron_left</span></div>
+            <div class="job">
+                <div class="jobs">
+                    <div class="job-content">
+                        <p class="job-title">Taxi</p>
+                        <p class="job-desc">Lubisz rozmawiać z ludźmi?, lubisz krótkie podróże samochodem?, w tej pracy możesz się w tym spełniać zarabiając przy tym pieniądze!.</p>
+                        <p class="job-button"><button onclick="set('taxi')">WYBIERZ</button></p>
+                    </div>
+                    <div class="job-content">
+                        <p class="job-title">Sadownik</p>
+                        <p class="job-desc">Sadownik zajmuję się zbiorem owoców oraz przerabianiem ich na soki.</p>
+                        <p class="job-button"><button onclick="set('sadownik')">WYBIERZ</button></p>
+                    </div>
+                    <div class="job-content">
+                        <p class="job-title">Magazynier</p>
+                        <p class="job-desc">Lubisz pracę z ludźmi dookoła?, praca magazyniera to świetna praca na szybki zarobek!</p>
+                        <p class="job-button"><button onclick="set('magazynier')">WYBIERZ</button></p>
+                    </div>
+                    <div class="job-content">
+                        <p class="job-title">Bezrobotny</p>
+                        <p class="job-desc">Nie chce Ci się pracować? Idź leniwcu na zasiłek!</p>
+                        <p class="job-button"><button onclick="set('unemployed')">WYBIERZ</button></p>
+                    </div>
+                </div>
+            </div>
+            <div class="arrow" onclick="toggle(1)" id="right"><span class="material-icons arrow-icon">chevron_right</span></div>
+        </div>
+    </body>
+</html>
